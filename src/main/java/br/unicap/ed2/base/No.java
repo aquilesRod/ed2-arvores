@@ -25,6 +25,7 @@ public class No {
 
     public <T extends No> void setEsquerda( T no) {
         esquerda = no;
+        no.setPai(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -39,6 +40,7 @@ public class No {
 
     public <T extends No> void setDireita(T no) {
         direita = no;
+        no.setPai(this);
     }
 
     public void setChave(int chave) {
@@ -47,5 +49,25 @@ public class No {
 
     public String toString(){
         return "No com chave - "+chave;
+    }
+
+
+    public static int[] array = new int[100000];
+
+    public static int getValor(int indice){
+        return array[indice];
+    }
+
+    public static boolean existe(int valor){
+        for (int i : array) {
+            if (valor == i){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        
     }
 }
